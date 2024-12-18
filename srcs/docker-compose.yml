@@ -1,14 +1,14 @@
 version: '3.9'
 
 services:
-  nginix:
-    container_name: nginix
+  nginx:
+    container_name: nginx
     build:
-      context: requirements/nginix
+      context: requirements/nginx
       dockerfile: dockerfile
     depends_on:
       - wordpress
-    image: nginix:v0.1
+    image: nginx:v0.1
     ports:
       -"443:443"
     volumes:
