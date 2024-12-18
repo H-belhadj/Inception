@@ -1,0 +1,63 @@
+version: '3.9'
+
+services:
+  nginix:
+    container_name: nginix
+    build:
+      context: requirements/nginix
+      dockerfile: dockerfile
+    depends_on:
+      - wordpress
+    image: nginix:v0.1
+    ports:
+      -"443:443"
+    volumes:
+      -wordpress:/var/ww/html
+    networks:
+      - net-work
+    restart: on-failure
+  
+  mariadb:
+    container_name: mariadb
+    build: 
+      context: requirements/mariadb
+      dockerfile: Dockerfile
+    image: mariadb:v0.1
+    volumes:
+      -mariadb:/var/lib/mysql
+    networks:
+      - net-work
+    env_file:
+      - ./.env
+    restart: on-failure
+  wordpress:
+    container_name: wordpress
+    build: 
+      context: requirements/wordpress
+      dockerfile: Dockerfile
+    image: wordpress:v0.1
+    volumes:
+      -wordpress:/var/www/html
+    networks:
+      - net-work
+    depends_on:
+      - mariadb
+    env_file:
+      - ./.env
+    restart: on-failure
+  networks:
+    net-work:
+      driver: bridge
+  volumes:
+    wordpress:
+      driver: local
+      driver_opts:
+        type: none
+        device: '/home/hbelhadj/data/wp'
+        o: 'bind'
+    mariadb:
+      driver: local
+      driver_opts:
+        type: none
+        device: '/home/hbelhadj/data/db'
+        o: 'bind'
