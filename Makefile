@@ -17,8 +17,8 @@ start:
 	$(DOCKER_COMPOSE) start
 clean:
 	$(DOCKER_COMPOSE) down --rmi all --volumes
-	sudo em -rf ~/data/db/*
-	sudo em -rf ~/data/wp/*
+	sudo rm -rf ~/data/db/*
+	sudo rm -rf ~/data/wp/*
 re : clean up
 
 .PHONY: up down stop start clean
