@@ -1,6 +1,6 @@
 server {
     listen 443 ssl;
-    server_name localhost;
+    server_name hbelhadj.42.fr;
 
     ssl_protocols TLSv1.3;
     ssl_certificate /etc/nginx/server.crt;
@@ -9,7 +9,8 @@ server {
     root   /var/www/html;
     index  index.php index.html;
     
-    location ~ \.php$ {
+    location ~ \.php$
+    {
         include snippets/fastcgi-php.conf;
         fastcgi_pass wordpress:9000;
     }
