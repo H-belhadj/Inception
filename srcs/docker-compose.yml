@@ -15,13 +15,13 @@ services:
             - wordpress:/var/www/html
         networks:
             - net-work
-        restart: on-failure
+        restart: always
 
     mariadb:
         build:
             context: requirements/mariadb
             dockerfile: Dockerfile
-        restart: on-failure
+        restart: always
         container_name: mariadb
         image: mariadb:v0.1
         volumes:
@@ -35,7 +35,7 @@ services:
         build:
             context: requirements/wordpress
             dockerfile: Dockerfile
-        restart: on-failure
+        restart: always
         container_name: wordpress
         image: wordpress:v0.1
         volumes:
