@@ -5,7 +5,7 @@ all : up
 up:
 	mkdir -p ~/data/db/
 	mkdir -p ~/data/wp/
-	$(DOCKER_COMPOSE) up -d --build
+	$(DOCKER_COMPOSE) up --detach --build
 
 down:
 	$(DOCKER_COMPOSE) down --volumes
