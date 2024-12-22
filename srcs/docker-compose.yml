@@ -48,8 +48,7 @@ services:
             - ./.env
 
 networks:
-    net-work:
-        driver: bridge
+    net-work: {}
   
 volumes:
     wordpress:
