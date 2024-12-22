@@ -1,7 +1,6 @@
-# Variable for Docker Compose
+
 DOCKER_COMPOSE = docker-compose -f ./srcs/docker-compose.yml
 
-# ANSI color codes
 GREEN = \033[0;32m
 YELLOW = \033[0;33m
 BLUE = \033[0;34m
