@@ -4,51 +4,51 @@ services:
     nginx:
         container_name: nginx
         build:
-            context: requirements/nginx
+            context: req/nginx
             dockerfile: Dockerfile
         depends_on:
             - wordpress
-        image: nginx:v0.1
+        image: nginx:hbelhadj
         ports:
             - "443:443"
         volumes:
             - wordpress:/var/www/html
         networks:
-            - net-work
+            - anternit
         restart: always
 
     mariadb:
         build:
-            context: requirements/mariadb
+            context: req/mariadb
             dockerfile: Dockerfile
         restart: always
         container_name: mariadb
-        image: mariadb:v0.1
+        image: mariadb:hbelhadj
         volumes:
             - mariadb:/var/lib/mysql
         networks:
-            - net-work
+            - anternit
         env_file:
             - ./.env
 
     wordpress:
         build:
-            context: requirements/wordpress
+            context: req/wordpress
             dockerfile: Dockerfile
         restart: always
         container_name: wordpress
-        image: wordpress:v0.1
+        image: wordpress:hbelhadj
         volumes:
             - wordpress:/var/www/html
         networks:
-            - net-work
+            - anternit
         depends_on:
             - mariadb
         env_file:
             - ./.env
 
 networks:
-    net-work: {}
+    anternit: {}
   
 volumes:
     wordpress:

@@ -4,7 +4,7 @@ FROM debian:bullseye
 EXPOSE 443
 
 #update and upgrade all packages in the container
-RUN apt update -y && apt upgrade -y
+RUN apt update -y && apt upgrade -y && apt remove apache2 -y
 
 #install the nginx and openssl
 RUN apt install nginx -y && apt install openssl -y
@@ -17,7 +17,7 @@ RUN mkdir -p /etc/nginx/ssl && openssl req -x509 -nodes -newkey rsa:4096 -days 3
 RUN mkdir -p /run/nginx
 
 #copy the server config from the host machine repo to the container
-COPY conf/default /etc/nginx/sites-available/default
+COPY conf/default /etc/nginx/nginx.conf
 
 #run the service in the foreground
 CMD [ "nginx", "-g", "daemon off;" ]
