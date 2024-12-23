@@ -1,6 +1,6 @@
 FROM debian:bullseye
 
-RUN apt update
+RUN apt update -y
 
 RUN apt install -y php php-fpm php-mysql curl
 
