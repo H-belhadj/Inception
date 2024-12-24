@@ -1,10 +1,8 @@
 FROM debian:bullseye
 
-RUN apt update -y
-
-RUN apt install -y php php-fpm php-mysql curl
-
-RUN apt upgrade -y
+RUN apt update -y && \
+    apt install -y php php-fpm php-mysql curl && \
+    apt upgrade -y
 
 COPY ./tools/script.sh /usr/local/bin
 
