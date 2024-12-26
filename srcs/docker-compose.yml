@@ -12,7 +12,7 @@ services:
         ports:
             - "443:443"
         volumes:
-            - wordpress:/var/www/html
+            - wordpress:/var/www/html 
         networks:
             - anternit
         restart: always
@@ -39,7 +39,7 @@ services:
         container_name: wordpress
         image: wordpress:hbelhadj
         volumes:
-            - wordpress:/var/www/html
+            - wordpress:/var/www/html 
         networks:
             - anternit
         depends_on:

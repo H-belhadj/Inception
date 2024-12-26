@@ -1,7 +1,6 @@
 #!/bin/sh
-sleep 3
 
-if [ -f /var/www/html/wp-config.php ]
+if [ -f /var/www/html /wp-config.php ]
     then
         echo "Wordpress already downloaded"
     else
@@ -10,11 +9,10 @@ if [ -f /var/www/html/wp-config.php ]
 
     sed -i 's#listen = /run/php/php7.4-fpm.sock#listen = 9000#' /etc/php/7.4/fpm/pool.d/www.conf
 
-    cd /var/www/html
+    cd /var/www/html 
     wp core download --allow-root
     mv wp-config-sample.php wp-config.php
 
-    wp config set SERVER_PORT 3306 --allow-root
     wp config set DB_NAME $DB_NAME --allow-root
     wp config set DB_USER $DB_USER --allow-root
     wp config set DB_PASSWORD $DB_PASS --allow-root
@@ -30,4 +28,4 @@ fi
 
 mkdir -p /run/php/
 
-php-fpm7.4 -F
+exec php-fpm7.4 -F

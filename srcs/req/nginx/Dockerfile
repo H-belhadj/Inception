@@ -1,4 +1,4 @@
-# Use the Debian Bullseye base image
+# Use the Debian bookworm base image
 FROM debian:bullseye
 
 # Container will listen on port 443 at runtime (mapped to host's 443 port in Docker Compose)
