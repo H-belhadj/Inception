@@ -4,7 +4,7 @@ services:
     nginx:
         container_name: nginx
         build:
-            context: req/nginx
+            context: requirements/nginx
             dockerfile: Dockerfile
         depends_on:
             - wordpress
@@ -19,7 +19,7 @@ services:
 
     mariadb:
         build:
-            context: req/mariadb
+            context: requirements/mariadb
             dockerfile: Dockerfile
         restart: always
         container_name: mariadb
@@ -33,7 +33,7 @@ services:
 
     wordpress:
         build:
-            context: req/wordpress
+            context: requirements/wordpress
             dockerfile: Dockerfile
         restart: always
         container_name: wordpress

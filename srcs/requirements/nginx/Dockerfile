@@ -11,7 +11,7 @@ RUN apt update -y && \
     mkdir -p /etc/nginx/ssl && \
     openssl req -x509 -nodes -newkey rsa:4096 -days 365 \
         -out /etc/nginx/server.crt -keyout /etc/nginx/server.key \
-        -subj "/CN=hbelhadj.42.fr/UID=hbelhadj" && \
+        -subj "/CN=${DOMAIN_NAME}/UID=hbelhadj" && \
     mkdir -p /run/nginx
 
 # Copy the Nginx server configuration from the host to the container
