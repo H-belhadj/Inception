@@ -55,11 +55,11 @@ volumes:
         driver: local
         driver_opts:
             type: none
-            device: '/home/haitam/data/wp'
+            device: '/home/hbelhadj/data/wp'
             o: 'bind'
     mariadb:
         driver: local
         driver_opts:
             type: none
-            device: '/home/haitam/data/db'
+            device: '/home/hbelhadj/data/db'
             o: 'bind'
